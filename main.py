@@ -49,7 +49,6 @@ active = False
 def find_max():
     arr = []
     bd = open("score.txt", "r")
-    # итерация по строкам
     for line in bd:
         arr.append(int(line))
 
@@ -58,39 +57,6 @@ def find_max():
     bd.write(str(m) + '\n')
     bd.close()
     return m
-
-class Hands(pygame.sprite.Sprite):
-    def __init__(self, char):
-        super().__init__()
-        self.char = char
-        if self.char in ['п', 'а', 'к', 'е', 'п', 'и', 'м', 'с', 'и', '5', '6', ':', '%']:
-            print(char)
-            self.image = pygame.transform.scale(character_image, (100, 100))
-            self.rect = self.image.get_rect()
-            if char == 'а':
-                self.rect.x = 300
-                self.rect.y = 520
-            elif char == 'п':
-                self.rect.x = 300 + 50
-                self.rect.y = 520
-            #elif char == 'к':
-                
-
-        else:
-            self.image = pygame.transform.scale(character_image, (100, 100))
-            self.rect = self.image.get_rect()
-
-    def draw(self):
-        screen.blit(self.image, (self.rect.x, self.rect.y))
-
-    def grow(self):
-        self.size += 10
-
-    def is_collision(self, food):
-        if self.rect.x < food.rect.x < self.rect.x + self.size and self.rect.y < food.rect.y < self.rect.y + self.size:
-            return True
-        return False
-
 
 
 def get_words():
@@ -264,10 +230,6 @@ def start_the_train():
         virtual_surface.blit(imp, default_image_position)
 
 
-        Hand_a = Hands('a')
-        Hand_a.draw()
-
-
 
         line_s = lines[0][ : ind]
         text_surface1 = base_font.render(line_s, 0, (170, 170, 170)) 
@@ -304,10 +266,7 @@ def start_the_train():
 
 
 
-
-
 def menu():
-    print(find_max())
     running = True
     while running:
         for event in pygame.event.get(): 
@@ -342,5 +301,4 @@ menu()
 
 
 
-    
     
