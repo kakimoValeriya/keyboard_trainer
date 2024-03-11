@@ -60,7 +60,7 @@ def find_max():
 
 
 def get_words():
-    f = open('sample2.txt').read()
+    f = open('text.txt').read()
     words = f.split(' ')
     lenght = 0
     sentence = ''
